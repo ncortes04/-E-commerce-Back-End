@@ -3,7 +3,7 @@ const { Model } = require('sequelize');
 const { Category, Product } = require('../../models');
 
 // The `/api/categories` endpoint
-
+  // find all categories
 router.get('/', async (req, res) => {
   try {
     const categoryData = await Category.findAll({
@@ -13,10 +13,8 @@ router.get('/', async (req, res) => {
   } catch (err){
     res.status(500).json(err)
   }
-  // find all categories
-  // be sure to include its associated Products
 });
-
+//get a category by id
 router.get('/:id', async (req, res) => {
   try {
     const categoryData = await Category.findByPk(req.params.id,{
@@ -44,6 +42,7 @@ router.post('/', async (req, res) => {
     res.status(500).json(err)
   }
 });
+//update a category by id
 
 router.put('/:id', async (req, res) => {
   try {
@@ -63,7 +62,7 @@ router.put('/:id', async (req, res) => {
   }
   // update a category by its `id` value
 });
-
+//deletecategory by id
 router.delete('/:id', async (req, res) => {
   try {
     const categoryData = await Category.destroy({

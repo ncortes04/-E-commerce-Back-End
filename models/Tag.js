@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Tag extends Model {}
-
+//tag model with id and tagname as fields
 Tag.init(
   {
     id: {
